@@ -11,6 +11,7 @@ class MoviesController < ApplicationController
   end
 
   def index
+    @movies=Movie.all
 =begin      
     sort = params[:sort] || session[:sort]
     case sort
