@@ -11,6 +11,7 @@ class MoviesController < ApplicationController
   end
 
   def index
+=begin      
     sort = params[:sort] || session[:sort]
     case sort
     when 'title'
@@ -32,7 +33,9 @@ class MoviesController < ApplicationController
     end
     @movies = Movie.find_all_by_rating(@selected_ratings.keys, ordering)
   
+=end
   end
+ 
 
   def new
     # default: render 'new' template
@@ -61,10 +64,4 @@ class MoviesController < ApplicationController
     flash[:notice] = "Movie '#{@movie.title}' deleted."
     redirect_to movies_path
   end
-
-  def find_class(header)
-    params[:sort] == header ? 'hilite' : nil
-  end
-  helper_method :find_class
-
 end
